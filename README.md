@@ -7,10 +7,10 @@ Table of Contents
 * [Setting up development environment](#setting-up-development-environment)
   * [Prerequisites](#prerequisites)
 * [Setting up the database](#setting-up-the-database)
-* [Importing users and events](#importing-users-and-events)
+* [Importing sample data](#importing-sample-data)
 * [Starting the rails server](#starting-the-rails-server)
-* [UI for listing events](#ui-for-listing-events)
-* [Checking for availability of users](#checking-for-availability-of-users)
+* [[UI for booking slot](#ui-for-booking-slot)
+* [Running test cases](#running-test-cases)
 
 
 
@@ -30,7 +30,7 @@ Table of Contents
 
 * Migrate the database using `bundle exec rake db:drop db:create db:migrate`
 
-## Importing users and events
+## Importing sample data
 
 * Copy the sample data to a CSV file and place it inside `db/csvs`
   ```
