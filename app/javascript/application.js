@@ -1,2 +1,2 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "components/hello_react"
+import "components/welcome_page"
