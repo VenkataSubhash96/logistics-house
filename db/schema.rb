@@ -11,7 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_06_24_123956) do
-# Could not dump table "bookings" because of following StandardError
-#   Unknown type 'uuid' for column 'id'
+	create_table :bookings, id: :uuid do |t|
+    t.string :customer_name
+    t.datetime :starts
+    t.datetime :ends
 
+    t.timestamps
+  end
 end

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require_relative "./fetch_available_slots"
-require_relative "../helpers/bookings_helper"
+require_relative "../../app/helpers/bookings_helper"
 
 module Services
   class CreateBooking
-    include Helpers::BookingsHelper
+    include BookingsHelper
 
     attr_accessor :errors
 
