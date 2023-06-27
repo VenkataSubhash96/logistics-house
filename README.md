@@ -11,6 +11,7 @@ Table of Contents
 * [Starting the rails server](#starting-the-rails-server)
 * [[UI for booking slot](#ui-for-booking-slot)
 * [Running test cases](#running-test-cases)
+* [Things to keep in mind](#things-to-keep-in-mind)
 
 
 
@@ -61,3 +62,7 @@ bundle exec rake populate_sample_data:run
 
 * This app is using `rspec` for test cases.
 * Run `bundle exec rspec spec` to run the test cases. The test suite should be green.
+
+## Things to keep in mind
+
+* This app is using action cable to implement web socket for live updates on slot bookings.

@@ -41,6 +41,10 @@ RSpec.describe BookingsController, type: :controller do
   end
 
   describe 'POST create' do
+    before do
+      allow(ActionCable).to receive_message_chain(:server, :broadcast).and_return(true)
+    end
+
     context 'When params are valid' do
       it 'returns 200 ok' do
         post :create, params: { booking_date: '01/01/2030', duration_in_minutes: 60, slot: '15:00' }

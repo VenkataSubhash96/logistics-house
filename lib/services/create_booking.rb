@@ -20,6 +20,7 @@ module Services
       return unless valid?
 
       Booking.create!(id: id, starts: starts, ends: ends)
+      ActionCable.server.broadcast('bookings_channel', refresh_available_slots)
     end
 
     private
@@ -51,6 +52,10 @@ module Services
 
     def available_slots
       @available_slots ||= Services::FetchAvailableSlots.new(date, duration_in_minutes).call
+    end
+
+    def refresh_available_slots
+      Services::FetchAvailableSlots.new(date, duration_in_minutes).call
     end
   end
 end

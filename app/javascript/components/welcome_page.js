@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
+import consumer from '../channels/consumer';
 
 function WelcomePage() {
   const [isBookYourSlotButtonVisible, setBookYourSlotButtonVisible] = useState(true);
@@ -13,6 +14,18 @@ function WelcomePage() {
   const [slotBooked, setSlotBooked] = useState(false);
   const [slotMissingError, setSlotMissingError] = useState(null);
   const [bookSlotApiError, setBookSlotApiError] = useState(null);
+
+  useEffect(() => {
+    const subscription = consumer.subscriptions.create('BookingsChannel', {
+      received: (data) => {
+        setSuggestedSlots(data)
+      },
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
 
   const centerAlignStyle = {
     textAlign: 'center'
