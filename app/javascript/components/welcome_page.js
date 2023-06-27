@@ -86,6 +86,17 @@ function WelcomePage() {
     height: '25vh'
   };
 
+  const backgroundImageStyle = {
+    backgroundImage: "url('truck.png')",
+    filter: 'blur(0.05px)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    zIndex: -1
+  };
+
   const currentDate = new Date().toISOString().split('T')[0];
 
   const hideBookYourSlotButton = () => {
@@ -179,7 +190,7 @@ function WelcomePage() {
   );
 
   const companySubtitleElement = React.createElement(
-    'p', {style: {textAlign: 'center', marginTop: '-20px'}}, 'Delivering Excellence at Every Step'
+    'h4', {style: {textAlign: 'center', marginTop: '-20px'}}, 'Delivering Excellence at Every Step'
   );
 
   const bookPickupTextElement = React.createElement(
@@ -228,11 +239,11 @@ function WelcomePage() {
   ) : null
 
   const fieldsMissingErrorMessageElement = fieldMissingError ? React.createElement(
-    'p', { style: {textAlign: 'center', marginTop: '20px', color: 'red'} }, fieldMissingError
+    'h3', { style: {textAlign: 'center', marginTop: '20px', color: 'red'} }, fieldMissingError
   ) : null
 
   const showSuggestedTimeSlotsApiErrorMessage = suggestedSlotsApiErrors ? React.createElement(
-    'p', { style: {textAlign: 'center', marginTop: '20px', color: 'red'} }, suggestedSlotsApiErrors
+    'h3', { style: {textAlign: 'center', marginTop: '20px', color: 'red'} }, suggestedSlotsApiErrors
   ) : null
 
   const bookSlotApiErrorMessage = bookSlotApiError ? React.createElement(
@@ -262,7 +273,7 @@ function WelcomePage() {
   ) : null
 
   const slotMissingErrorMessageElement = slotMissingError ? React.createElement(
-    'p', { style: {textAlign: 'center', marginTop: '20px', color: 'red'} }, slotMissingError
+    'h3', { style: {textAlign: 'center', marginTop: '20px', color: 'red'} }, slotMissingError
   ) : null
 
   const slotBookingForm = React.createElement(
@@ -317,10 +328,14 @@ function WelcomePage() {
 
   const loadPage = slotBooked ? slotBookedConfirmationMessageElement : slotBookingForm
 
+  const pageContainer = React.createElement('div', { className: 'page-container' }, [loadPage]);
+
+  const containerWithBackground = React.createElement('div', { style: backgroundImageStyle }, [pageContainer]);
+
   return React.createElement(
     'div',
     {},
-    loadPage
+    containerWithBackground
   )
 }
 
