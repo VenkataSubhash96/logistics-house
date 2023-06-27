@@ -5,6 +5,10 @@ require_relative '../../../lib/services/create_booking'
 
 RSpec.describe Services::CreateBooking do
   describe '#call' do
+    before do
+      allow(ActionCable).to receive_message_chain(:server, :broadcast).and_return(true)
+    end
+
     context 'When date is not parsable' do
       let(:params) do
         {
