@@ -55,3 +55,4 @@ bundle exec rake populate_sample_data:run
 ## Things to keep in mind
 
 * This app is using action cable to implement web socket for live updates on slot bookings.
+* This app is using Importmap to manage Javascript dependencies.
